@@ -1,0 +1,22 @@
+@import url(variables.css);
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color:var(--color-bg-primary);
+}
+
+.LoginContainer{
+    width: 100vw;
+    height: 100vh;
+}
+
+.loginForm{
+    border: 1px solid white;
+    height: 80%;
+}
+.registroGit{
+    border: 1px solid white;
+
+}

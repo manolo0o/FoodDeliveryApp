@@ -23,7 +23,9 @@ function Start() {
                         <img src={options} alt="options" />
                     </button> 
                     <button>
-                        <img src={continueButton} alt="Continue" />
+                        <Link to='/Login'>
+                            <img src={continueButton} alt="Continue" />
+                        </Link>
                     </button>
                 </div>
         </div>
