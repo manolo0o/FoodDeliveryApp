@@ -7,14 +7,16 @@ html {
   background-color:var(--color-bg-primary);
 }
 
-.LoginContainer{
+.RegisterContainer{
     color: white;
     width: 100vw;
     height: 100vh;
     display: flex;    
     justify-content: center;
     align-items: center;
-    margin-top: 9vh;
+}
+.RegisterContainer h1{
+    font-size: 7vw;
 }
 
 .loginForm{
