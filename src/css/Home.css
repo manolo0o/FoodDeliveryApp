@@ -5,3 +5,71 @@ html {
   margin: 0;
   padding: 0;
 }
+
+.HomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userContainer{
+  margin-top: 8vh;
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  justify-content: space-between;
+ 
+  align-items: center;
+}
+.navBarIcon{
+ 
+  width: 20%;
+  height: 80%;
+}
+
+.userImg{
+  display: flex;
+  align-items: center;
+  color: white;
+  padding-left: 7vw;
+}
+.userImg h1{
+  font-size: 5vh;
+}
+.userIcon{
+  height: 8vh;
+  padding-right: 3vw;
+}
+
+.inputContainer{
+  margin-top: 5vh;
+  width: 90%;
+  height: 9vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputContainer input{
+  width: 75%;
+  border-radius: 2vh;
+  background-color: var(--color-bg-secondary);
+}
+.inputContainer button{
+  width: 15%;
+  border-radius: 2vh;
+  background-color: var(--color-btn-primary);
+}
+.inputContainer button img{
+  width: 60%;
+}
+
+.foodCategory{
+  margin-top: 2vh;
+  border: 1px solid white;
+  width: 100%;
+  height: 25vh;
+}
+.foodCategory h1{
+  margin-left: 6vw;
+  font-size: 3.5vh;
+  color: white;
+}

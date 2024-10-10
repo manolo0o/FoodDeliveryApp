@@ -1,10 +1,12 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
-const ConnectToDatabase = require('./infraestructure/database/db.cjs');
+const ConnectToDatabase = require('./server/config/db.cjs');
 const passportConfig = require('./server/middlewares/passport.cjs');
 const authRoutes = require('./server/routes/auth.cjs');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+
 
 const startApp = async () => {
     const app = express();
@@ -48,6 +50,26 @@ const startApp = async () => {
 
     // Rutas
     app.use('/auth', authRoutes);
+    //rutas versionadas
+
+    // // Rate limiting middleware for v2 routes
+    // const v2Limiter = rateLimit({
+    //     windowMs: 15 * 60 * 1000, // 15 minutes
+    //     max: 100 // limit each IP to 100 requests per windowMs
+    // });
+
+    // Routes v1
+    // app.use('/api/v1/users', require('./server/routes/v1/userRoutes'));
+    // app.use('/api/v1/foods', require('./server/routes/v1/foodRoutes'));
+    // app.use('/api/v1/ratings', require('./server/routes/v1/ratingRoutes'));
+    // app.use('/api/v1/orders', require('./server/routes/v1/orderRoutes'));
+
+    // // Routes v2 (con rate limiting)
+    // app.use('/api/v2/users', v2Limiter, require('./server/routes/v1/userRoutes'));
+    // app.use('/api/v2/foods', v2Limiter, require('./server/routes/v1/foodRoutes'));
+    // app.use('/api/v2/ratings', v2Limiter, require('./server/routes/v1/ratingRoutes'));
+    // app.use('/api/v2/orders', v2Limiter, require('./server/routes/v1/orderRoutes'));
+
     
     // 🟡 Inicia el servidor en el puerto y host especificados en las variables de entorno.
     app.listen({ port: process.env.EXPRESS_PORT, host: process.env.EXPRESS_HOST }, () => {
