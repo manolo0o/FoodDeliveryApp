@@ -42,52 +42,29 @@ const  Register = () => {
     return (
         <>
             <div className="RegisterContainer">
-                    <div className="loginForm">
-                    <h1> WELCOME </h1>
-                        <div className="registroGit">
-                            <div className="git">
-                                <img src={gitIcon} alt="" />
-                                <Link to='/'>
-                                    JOIN US WITH GIT                              
-                                </Link>
-                            </div>
-                        </div>
-                        <button className="registroGoogle" onClick={signUpWithGoogle}>
-                            <div className="google">
-                                <img src={googleIcon} alt="" />
-                                {/* <Link to='/'> */}
-                                    JOIN US WITH GOOGLE                             
-                                {/* </Link> */}
-                            </div>
-                        </button>
-                        <div className="RegistroDiscord">
-                            <div className="discord">
-                                <img src={discordIcon} alt="" />
-                                <Link to='/'>
-                                    JOIN US WITH DISCORD                              
-                                </Link>
-                            </div>
-                        </div>
                         <div className="line"></div>
                         <div className="registroManual">
-                            <div className="inputEmail">
-                                <input type="email" placeholder="EMAIL" />
-                            </div>
-                            <div className="inputPassword">
-                                <input type="password" placeholder="PASSWORD" />
-                            </div>
-                            <div className="inputButton">
-                                <button>
-                                    <Link to='/login'>
-                                        JOIN US
-                                    </Link>
-                                </button>
-                            </div>
+                            <form className="inputEmail"  onSubmit={handleRegister}>
+                                <input 
+                                    type="email" 
+                                    placeholder="EMAIL"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                                <input 
+                                    type="password" 
+                                    placeholder="PASSWORD" 
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <button type="submit" className="inputButton"> JOIN US </button>
+                            </form>
                         </div>
                     </div>
-            </div>
         </>
     );
-}
+};
 
 export default Register;
