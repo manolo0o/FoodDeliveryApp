@@ -1,6 +1,8 @@
 // DEPENDENCIES IMPORTATIONS
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebaseConfig.js"
+import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 
 // STYLES IMPORTATION
 import "../css/Login.css";
@@ -11,7 +13,10 @@ import googleIcon from "../assets/img/google.svg";
 import discordIcon from "../assets/img/discord.svg";
 
 // SCRIPT
-function Login() {
+const Login = () => {
+    const googleProvider = new GoogleAuthProvider();
+
+    
     return (
         <>
             <div className="LoginContainer">
