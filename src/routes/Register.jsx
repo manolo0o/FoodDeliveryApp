@@ -1,6 +1,8 @@
 // DEPENDENCIES IMPORTATIONS
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebaseConfig"
+import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
 
 // STYLES IMPORTATION
 import "../css/Register.css";
@@ -11,7 +13,32 @@ import googleIcon from "../assets/img/google.svg";
 import discordIcon from "../assets/img/discord.svg";
 
 // SCRIPT
-function Register() {
+const  Register = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const googleProvider = new GoogleAuthProvider;
+
+    // GOOGLE SIGN UP
+    const signUpWithGoogle = async () => {
+        try{
+            const result = await signInWithPopup( auth, googleProvider);
+            console.log('User signed in successfully: ', result.user);
+        } catch (error) {
+            console.error('Error signing in with Google', error.message);
+        }
+    }    
+
+    // SIGN UP WITH EMAIL & PASSWORD
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        try{
+            const result  = await createUserWithEmailAndPassword(auth, email, password);
+            console.log('User signed in successfully: ', result.user );
+        } catch (error) {
+            console.error('Error signing up with email and password', error.message);
+        }
+    }
+    
     return (
         <>
             <div className="RegisterContainer">
@@ -25,14 +52,14 @@ function Register() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="registroGoogle">
+                        <button className="registroGoogle" onClick={signUpWithGoogle}>
                             <div className="google">
                                 <img src={googleIcon} alt="" />
-                                <Link to='/'>
+                                {/* <Link to='/'> */}
                                     JOIN US WITH GOOGLE                             
-                                </Link>
+                                {/* </Link> */}
                             </div>
-                        </div>
+                        </button>
                         <div className="RegistroDiscord">
                             <div className="discord">
                                 <img src={discordIcon} alt="" />

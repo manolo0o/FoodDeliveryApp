@@ -16,7 +16,26 @@ import discordIcon from "../assets/img/discord.svg";
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
 
-    
+    // SIGN IN  
+    const signInWithGoogle = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            console.log('Google Sign-in successful', result.user);
+        } catch (error) {
+            console.error('Google Sign-in failed', error);
+        }
+    };
+
+    // LOGOUT
+    // const handleLogout = async() => {
+    //     try{
+    //         await signOut(auth);
+    //         console.log('User signed out');
+    //     } catch (error) {
+    //         console.error('Failed to log out', error);
+    //     }
+    // };
+
     return (
         <>
             <div className="LoginContainer">
@@ -30,15 +49,15 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="registroGoogle">
-                            <div className="google">
+                            <button className="google" onClick={signInWithGoogle}>
                                 <img src={googleIcon} alt="" />
-                                <Link to='/'>
+                                {/* <Link to='/'> */}
                                     ENTER WITH GOOGLE                             
-                                </Link>
-                            </div>
+                                {/* </Link> */}
+                            </button>
                         </div>
                         <div className="RegistroDiscord">
-                            <div className="discord">
+                            <div className="discord" >
                                 <img src={discordIcon} alt="" />
                                 <Link to='/'>
                                     ENTER WITH DISCORD                              
