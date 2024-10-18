@@ -9,7 +9,7 @@ import "../css/Login.css";
 
 //IMAGE IMPORTATION
 // import gitIcon from "../assets/img/git.svg";
-// import googleIcon from "../assets/img/google.svg";  
+import googleIcon from "../assets/img/google.svg";  
 // import discordIcon from "../assets/img/discord.svg";
 
 // SCRIPT
@@ -38,7 +38,41 @@ const Login = () => {
 
     return (
         <>
-        
+            <div className="principal__Container">
+                <div className="welcome__Container">
+                    <h1>Login here</h1>
+                    <h2>Welcome back you’ve <br /> been missed!</h2>
+                </div>
+                <div className="form__Container">
+                    <form>
+                        <input 
+                            type="email"
+                            placeholder="Email"
+                            className="input__Email"
+                            required
+                            />
+                        <input 
+                            type="password"
+                            placeholder="Password"
+                            className="input__Password"
+                            required
+                        />
+                        <p> forgot your password? </p>
+                        <button type="submit" className="signInButton"> Sign In </button>
+                    </form>
+                    <div className="create__Account">
+                        <Link to='/Register'>
+                            <p> Create new account</p>
+                        </Link>
+                    </div>
+                    <div className="social__Media__SigIn">
+                        <p>Or continue with</p>
+                        <button onClick={signInWithGoogle} className="google__Icon">
+                            <img src={googleIcon} alt="googleIcon" />
+                        </button>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

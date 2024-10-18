@@ -1,8 +1,48 @@
 @import url(variables.css);
 
+*{
+    font-family: Satoshi-VariableItalic, sans-serif;
+    color: white;
+}
+
 body,
 html {
-  margin: 0;
-  padding: 0;
-  background-color:var(--color-bg-primary);
+    margin: 0;
+    padding: 0;
+    background-color:var(--color-bg-primary);
+}
+
+.principal__Container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome__Container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.welcome__Container h1{
+    color: var(--color-btn-primary);
+}
+.welcome__Container h2{
+    margin-top: 0;
+}
+
+.form__Container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+.input__Email,
+.input__Password{
+    width: 100%;
+    
 }
