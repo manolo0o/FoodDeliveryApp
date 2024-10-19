@@ -3,6 +3,7 @@
 *{
     font-family: Satoshi-VariableItalic, sans-serif;
     color: white;
+    font-weight: bold;
 }
 
 body,
@@ -26,6 +27,7 @@ html {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding-top: 10vh;
 }
 .welcome__Container h1{
     color: var(--color-btn-primary);
@@ -44,5 +46,62 @@ html {
 .input__Email,
 .input__Password{
     width: 100%;
-    
+    height: 8vh;
+    border-radius: 1.5vh;
+    border: none;
+    color: black;
+    box-sizing: border-box;
+    padding-left: 3vw;
+}
+.input__Email::placeholder,
+.input__Password::placeholder{
+    padding-left: 1vw;
+}
+.input__Email:focus,
+.input__Password:focus{
+    border: 3px solid var(--color-btn-primary);
+    outline: none;
+}
+.input__Email{
+    margin-bottom: 4vh;
+}
+
+.form__Container p{
+    color: var(--color-btn-primary);
+    text-align: end;
+    padding-right: 2vw;
+}
+.signInButton{
+    width: 100%;
+    height: 8vh;
+    border-radius: 1.5vh;
+    border: none;
+    background-color: var(--color-btn-primary);
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.create__Account {
+    padding-top: 1vh;
+}
+.create__Account a{
+    text-decoration: none;
+}
+.continue__With{
+    color: var(--color-btn-primary);
+}
+.social__Media__SigIn{
+    width: 100%;
+    display: flex;    
+    justify-content: center;
+} 
+.social__Media__SigIn button{
+    padding: 3vh;
+    padding-bottom: 0;
+    padding-top: 0;
+    background: none;
+    border: none;
+}
+.social__Media__SigIn img{
+    width: 100%;
 }

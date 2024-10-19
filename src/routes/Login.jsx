@@ -8,9 +8,9 @@ import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 import "../css/Login.css";
 
 //IMAGE IMPORTATION
-// import gitIcon from "../assets/img/git.svg";
+import gitIcon from "../assets/img/git.svg";
 import googleIcon from "../assets/img/google.svg";  
-// import discordIcon from "../assets/img/discord.svg";
+import discordIcon from "../assets/img/discord.svg";
 
 // SCRIPT
 const Login = () => {
@@ -60,18 +60,24 @@ const Login = () => {
                         <p> forgot your password? </p>
                         <button type="submit" className="signInButton"> Sign In </button>
                     </form>
+                </div>
                     <div className="create__Account">
                         <Link to='/Register'>
                             <p> Create new account</p>
                         </Link>
                     </div>
+                        <p className="continue__With">Or continue with</p>
                     <div className="social__Media__SigIn">
-                        <p>Or continue with</p>
                         <button onClick={signInWithGoogle} className="google__Icon">
                             <img src={googleIcon} alt="googleIcon" />
                         </button>
+                        <button className="discord__Icon">
+                            <img src={discordIcon} alt="discordIcon" />
+                        </button>
+                        <button className="git__Icon">
+                            <img src={gitIcon} alt="gitIcon" />
+                        </button>
                     </div>
-                </div>
             </div>
         </>
     )
