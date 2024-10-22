@@ -87,6 +87,10 @@ html {
 .create__Account a{
     text-decoration: none;
 }
+.create__Account p{
+    margin-bottom: 0;
+    margin-top: 4vh;
+}
 .continue__With{
     color: var(--color-btn-primary);
 }

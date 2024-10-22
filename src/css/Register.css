@@ -63,6 +63,13 @@ html {
 .input__Confirm__Password::placeholder{
     padding-left: 1vw;
 }
+.input__Email__Register:focus,
+.input__Pasword:focus,
+.input__Confirm__Password:focus{
+    border: 3px solid var(--color-btn-primary);
+    outline: none;
+}
+
 
 .signUp__Button{
     width: 100%;
@@ -78,4 +85,9 @@ html {
 .already__Have a{
     text-decoration: none;
 }
+.already__Have p{
+    margin-bottom: 0;
+    margin-top: 5vh; 
+}
+
 
