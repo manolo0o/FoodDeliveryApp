@@ -42,25 +42,54 @@ const  Register = () => {
     return (
         <>
             <div className="RegisterContainer">
-                        <div className="line"></div>
-                        <div className="registroManual">
+                        <div className="section__Title">
+                            <h1>Create Account</h1>
+                            <h3>Create an account to access all the features of Food Delivery App</h3>
+                        </div>
+                        <div className="form__Register">
                             <form className="inputEmail"  onSubmit={handleRegister}>
                                 <input 
                                     type="email" 
-                                    placeholder="EMAIL"
+                                    placeholder="Email"
+                                    className="input__Email__Register"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
                                 <input 
                                     type="password" 
-                                    placeholder="PASSWORD" 
+                                    placeholder="Password"
+                                    className="input__Pasword"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
                                 />
-                                <button type="submit" className="inputButton"> JOIN US </button>
+                                <input 
+                                    type="password" 
+                                    placeholder="Confirm Password" 
+                                    className="input__Confirm__Password"
+                                    value={password}
+                                    required
+                                />
+                                <button type="submit" className="signUp__Button"> Sign Up</button>
                             </form>
+                        </div>
+                            <div className="already__Have">
+                            <Link to='/login'>
+                                <p> Already have an account</p>
+                            </Link>
+                        </div>
+                            <p className="continue__With">Or continue with</p>
+                        <div className="social__Media__SigIn">
+                            <button onClick={signUpWithGoogle} className="google__Icon">
+                                <img src={googleIcon} alt="googleIcon" />
+                            </button>
+                            <button className="discord__Icon">
+                                <img src={discordIcon} alt="discordIcon" />
+                            </button>
+                            <button className="git__Icon">
+                                <img src={gitIcon} alt="gitIcon" />
+                            </button>
                         </div>
                     </div>
         </>

@@ -10,3 +10,72 @@ html {
     padding: 0;
     background-color:var(--color-bg-primary);
 }
+
+.RegisterContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section__Title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.section__Title h1{
+    color: var(--color-btn-primary);
+}
+.section__Title h3{
+    margin: 0;
+    width: 90%;
+    font-weight: normal;
+}
+
+.form__Register{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+
+.input__Email__Register,
+.input__Pasword,
+.input__Confirm__Password{
+    width: 100%;
+    height: 8vh;
+    border-radius: 1.5vh;
+    border: none;
+    color: black;
+    box-sizing: border-box;
+    padding-left: 3vw;
+    margin-bottom: 4vh;
+}
+.input__Email__Register::placeholder,
+.input__Pasword::placeholder,
+.input__Confirm__Password::placeholder{
+    padding-left: 1vw;
+}
+
+.signUp__Button{
+    width: 100%;
+    height: 8vh;
+    border-radius: 1.5vh;
+    border: none;
+    background-color: var(--color-btn-primary);
+    font-weight: bold;
+    font-size: 3vh;
+    margin-top: 2vh;
+}
+
+.already__Have a{
+    text-decoration: none;
+}
+

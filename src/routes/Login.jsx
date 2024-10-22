@@ -62,7 +62,7 @@ const Login = () => {
                     </form>
                 </div>
                     <div className="create__Account">
-                        <Link to='/Register'>
+                        <Link to='/register'>
                             <p> Create new account</p>
                         </Link>
                     </div>
