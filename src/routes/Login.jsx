@@ -1,8 +1,8 @@
 // DEPENDENCIES IMPORTATIONS
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js"
-import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from 'firebase/auth'
 
 // STYLES IMPORTATION
 import "../css/Login.css";
@@ -14,17 +14,32 @@ import discordIcon from "../assets/img/discord.svg";
 
 // SCRIPT
 const Login = () => {
-    const googleProvider = new GoogleAuthProvider();
+    //const googleProvider = new GoogleAuthProvider();
 
-    // SIGN IN  
-    const signInWithGoogle = async () => {
-        try {
-            const result = await signInWithPopup(auth, googleProvider);
-            console.log('Google Sign-in successful', result.user);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try{
+            await signInWithEmailAndPassword (auth, email, password);
+            navigate('/home')
         } catch (error) {
-            console.error('Google Sign-in failed', error);
+            setError(error.message);    
         }
     };
+
+    // SIGN IN  WITH GOOGLE
+    // const signInWithGoogle = async () => {
+    //     try {
+    //         const result = await signInWithPopup(auth, googleProvider);
+    //         console.log('Google Sign-in successful', result.user);
+    //     } catch (error) {
+    //         console.error('Google Sign-in failed', error);
+    //     }
+    // };
 
     // LOGOUT
     // const handleLogout = async() => {
@@ -49,16 +64,21 @@ const Login = () => {
                             type="email"
                             placeholder="Email"
                             className="input__Email"
+                            value={email}
+                            onChange={(e)=> setEmail(e.target.value)}
                             required
                             />
                         <input 
                             type="password"
                             placeholder="Password"
+                            value={password}
+                            onChange={(e)=> setPassword(e.target.value)}
                             className="input__Password"
                             required
                         />
                         <p> forgot your password? </p>
                         <button type="submit" className="signInButton"> Sign In </button>
+                        {error && <p>{error}</p>}
                     </form>
                 </div>
                     <div className="create__Account">
@@ -68,7 +88,7 @@ const Login = () => {
                     </div>
                         <p className="continue__With">Or continue with</p>
                     <div className="social__Media__SigIn">
-                        <button onClick={signInWithGoogle} className="google__Icon">
+                        <button /*onClick={signInWithGoogle}*/ className="google__Icon">
                             <img src={googleIcon} alt="googleIcon" />
                         </button>
                         <button className="discord__Icon">

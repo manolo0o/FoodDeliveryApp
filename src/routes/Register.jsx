@@ -1,8 +1,10 @@
-// DEPENDENCIES IMPORTATIONS
+// REACT
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { auth } from "../firebaseConfig"
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Link, useNavigate } from "react-router-dom";
+
+// FIREBASE 
+import { auth } from "../firebaseConfig.js";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 // STYLES IMPORTATION
 import "../css/Register.css";
@@ -16,28 +18,31 @@ import discordIcon from "../assets/img/discord.svg";
 const  Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const googleProvider = new GoogleAuthProvider;
+    const [error, setError] = useState('');
+   // const googleProvider = new GoogleAuthProvider;
+    const navigate = useNavigate();
+
 
     // GOOGLE SIGN UP
-    const signUpWithGoogle = async () => {
-        try{
-            const result = await signInWithPopup( auth, googleProvider);
-            console.log('User signed in successfully: ', result.user);
-        } catch (error) {
-            console.error('Error signing in with Google', error.message);
-        }
-    }    
+    // const signUpWithGoogle = async () => {
+    //     try{
+    //         const result = await signInWithPopup( auth, googleProvider);
+    //         console.log('User signed in successfully: ', result.user);
+    //     } catch (error) {
+    //         console.error('Error signing in with Google', error.message);
+    //     }
+    // }    
 
     // SIGN UP WITH EMAIL & PASSWORD
     const handleRegister = async (e) => {
         e.preventDefault();
         try{
-            const result  = await createUserWithEmailAndPassword(auth, email, password);
-            console.log('User signed in successfully: ', result.user );
+            await createUserWithEmailAndPassword(auth, email, password);
+            navigate('/login')
         } catch (error) {
-            console.error('Error signing up with email and password', error.message);
+            setError(error.message);
         }
-    }
+    };
     
     return (
         <>
@@ -68,10 +73,11 @@ const  Register = () => {
                                     type="password" 
                                     placeholder="Confirm Password" 
                                     className="input__Confirm__Password"
-                                    value={password}
-                                    required
+                                    //value={password}
+                                    //required
                                 />
                                 <button type="submit" className="signUp__Button"> Sign Up</button>
+                                {error && <p>{error}</p>}
                             </form>
                         </div>
                             <div className="already__Have">
@@ -81,7 +87,7 @@ const  Register = () => {
                         </div>
                             <p className="continue__With">Or continue with</p>
                         <div className="social__Media__SigIn">
-                            <button onClick={signUpWithGoogle} className="google__Icon">
+                            <button /* onClick={signUpWithGoogle}*/ className="google__Icon">
                                 <img src={googleIcon} alt="googleIcon" />
                             </button>
                             <button className="discord__Icon">
