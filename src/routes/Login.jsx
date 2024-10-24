@@ -1,8 +1,8 @@
 // DEPENDENCIES IMPORTATIONS
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js"
-import { GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth'
 
 // STYLES IMPORTATION
 import "../css/Login.css";
@@ -21,15 +21,28 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Usuario autenticado:", user);
+                navigate('/home');
+            }
+        });
+        return () => unsubscribe(); // Limpieza del listener
+    }, [navigate]);
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try{
-            await signInWithEmailAndPassword (auth, email, password);
-            navigate('/home')
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("Usuario autenticado:", userCredential);
+            navigate('/home');
         } catch (error) {
+            console.error("Error en el inicio de sesión:", error.code, error.message);    
             setError(error.message);    
         }
     };
+    
 
     // SIGN IN  WITH GOOGLE
     // const signInWithGoogle = async () => {
