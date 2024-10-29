@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
+    "server":"node index.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
