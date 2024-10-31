@@ -18,6 +18,10 @@ app.listen(config.port, config.host, () => {
     console.log(`Servidor corriendo en http://${config.host}:${config.port}`);
 });
 
+app.get('/', (req, res) => {
+    res.send("ola q mas")
+});
+
 require('dotenv').config();
 const ConnectToDatabase = require('./config/database.js');
 
