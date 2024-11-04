@@ -19,6 +19,12 @@ const productSchema =  new mongoose.Schema(
             required : true,
         }
     },
+    {
+        product__ShortDescription : {
+            type : String,
+            required : true,
+        }
+    },
     {   
         product__Price : {
             type : Number,
@@ -35,6 +41,12 @@ const productSchema =  new mongoose.Schema(
         product__Food__Time : { 
             type : String,
             required : true,
+        }
+    },
+    {
+        product__calories : {
+            type : String,
+            required : true
         }
     }
 )
