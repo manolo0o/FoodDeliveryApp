@@ -3,8 +3,9 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
 // ROUTES FILE
-const productRoutes = require('./routes/productRoutes.js');
 
+const productRoutes = require('./routes/productRoutes.js');
+const categoryRoutes = requtie('./routes/categoryRoutes.js');
 
 // MIDDLEWARES 
 
@@ -12,7 +13,9 @@ const app = express();
 app.use(express.json());
 
 // API ROUTES
+
 app.use('/products', productRoutes);
+app.use('/categories', categoryRoutes );
 
 // .ENV CONFIG
 
@@ -23,6 +26,7 @@ const config = {
 };
 
 // Iniciar el servidor
+
 app.listen(config.port, config.host, () => {
     console.log(`Servidor corriendo en http://${config.host}:${config.port}`);
 });
