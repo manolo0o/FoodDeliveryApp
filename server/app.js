@@ -1,52 +1,62 @@
-const express = require ('express');
-const dotenv = require('dotenv');
+// app.js
+
+require('dotenv').config({ path: "./config/.env" }); // Carga el archivo .env al inicio
+
+const express = require('express');
 const mongoose = require('mongoose');
 
-// ROUTES FILE
-
+// Importa las rutas
 const productRoutes = require('./routes/productRoutes.js');
-const categoryRoutes = requtie('./routes/categoryRoutes.js');
+const categoryRoutes = require('./routes/categoryRoutes.js');
 
-// MIDDLEWARES 
-
+// Inicia Express
 const app = express();
-app.use(express.json());
+app.use(express.json()); // Middleware para parsear JSON
 
-// API ROUTES
-
-app.use('/products', productRoutes);
-app.use('/categories', categoryRoutes );
-
-// .ENV CONFIG
-
-dotenv.config({path: "./config/.env"})
+// Configuración del servidor desde .env
 const config = {
     port: process.env.EXPRESS_PORT,
     host: process.env.EXPRESS_HOST,
 };
 
-// Iniciar el servidor
-
-app.listen(config.port, config.host, () => {
-    console.log(`Servidor corriendo en http://${config.host}:${config.port}`);
-});
-
-app.get('/', (req, res) => {
-    res.send("ola q mas")
-});
-
-require('dotenv').config();
+// Configuración de conexión a la base de datos
 const ConnectToDatabase = require('./config/database.js');
 
-// async function testDatabaseConnection() {
-// const dbConnection = new ConnectToDatabase();
+// Función asíncrona para conectar y luego iniciar el servidor
+async function startServer() {
+    try {
+        // Configuración de la conexión a MongoDB
+        const connectionString = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DBNAME}`;
+        
+        // Conectar a MongoDB con parámetros de tiempo de espera
+        await mongoose.connect(connectionString, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 5000,  // Timeout de conexión con el servidor (en milisegundos)
+            socketTimeoutMS: 45000,  // Timeout para operaciones de socket (en milisegundos)
+        });
+        
+        console.log("Conexión exitosa a la base de datos");
 
-// try {
-//     await dbConnection.connectOpen();
-//         console.log("Conexión exitosa a la base de datos");
-//     } catch (error) {
-//         console.error("Error al conectar a la base de datos:", error.message);
-//     }
-// }
+        // Iniciar el servidor solo después de conectar a MongoDB
+        app.listen(config.port, config.host, () => {
+            console.log(`Servidor corriendo en http://${config.host}:${config.port}`);
+        });
 
-// testDatabaseConnection();
+    } catch (error) {
+        console.error("Error al conectar a la base de datos:", error.message);
+        process.exit(1); // Finaliza la app si hay un error de conexión
+    }
+}
+
+// Rutas de la API
+app.use('/products', productRoutes);
+app.use('/categories', categoryRoutes);
+
+// Ruta inicial de prueba
+app.get('/', (req, res) => {
+    res.send("ola q mas");
+});
+
+// Ejecuta la conexión y luego inicia el servidor
+startServer();

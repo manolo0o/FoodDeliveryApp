@@ -1,5 +1,4 @@
 const express = require('express');
-const products = require('../models/productModel.js');
 const router = express.Router();
 
 
@@ -11,7 +10,5 @@ const {
 //FIND
 router.get('/', get__AllCategories);
 router.get('/:id', get__CategoriesByID);
-
-
 
 module.exports = router;
