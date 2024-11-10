@@ -30,8 +30,6 @@ async function startServer() {
         
         // Conectar a MongoDB con parámetros de tiempo de espera
         await mongoose.connect(connectionString, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             serverSelectionTimeoutMS: 5000,  // Timeout de conexión con el servidor (en milisegundos)
             socketTimeoutMS: 45000,  // Timeout para operaciones de socket (en milisegundos)
         });

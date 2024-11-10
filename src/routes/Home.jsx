@@ -1,5 +1,5 @@
 // DEPENDENCIES IMPORTATIONS
-import React from "react";
+import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 
 // STYLES IMPORTATION
@@ -11,6 +11,29 @@ import barIcon from "../assets/img/barIcon.svg";
 import searchIcon from "../assets/img/search.svg";
 // SCRIPT
 function Home() {
+
+    const [ data, setData ] = useState(null);
+    const [ loading, setLoading ] = useState(null);
+    const [ error, setError ] = useState(null);
+
+    useEffect(() =>{
+
+        const urlCategories = 'http://localhost:3000/categories'
+
+        const fetchData = async () => {
+            try{
+                const response = await fetch(urlCategories);
+                if (!response.ok) {
+                    throw new error(`Error: ${response.status}`);
+                }
+            } catch( error ){
+                
+            } finally {
+
+            }
+        }
+    })
+
     return (
         <>
             <div className="HomeContainer">
