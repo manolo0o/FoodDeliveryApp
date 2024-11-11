@@ -4,6 +4,8 @@ require('dotenv').config({ path: "./config/.env" }); // Carga el archivo .env al
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 
 // Importa las rutas
 const productRoutes = require('./routes/productRoutes.js');
@@ -13,6 +15,9 @@ const categoryRoutes = require('./routes/categoryRoutes.js');
 const app = express();
 app.use(express.json()); // Middleware para parsear JSON
 
+app.use(cors({
+    origin: 'http://localhost:5173'
+}));
 // Configuración del servidor desde .env
 const config = {
     port: process.env.EXPRESS_PORT,

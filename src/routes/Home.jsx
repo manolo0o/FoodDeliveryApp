@@ -1,6 +1,6 @@
 // DEPENDENCIES IMPORTATIONS
 import React, { useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 
 // STYLES IMPORTATION
 import "../css/Home.css";
@@ -12,7 +12,7 @@ import searchIcon from "../assets/img/search.svg";
 // SCRIPT
 function Home() {
 
-    const [ data, setData ] = useState(null);
+    const [ data, setData ] = useState([]);
     const [ loading, setLoading ] = useState(null);
     const [ error, setError ] = useState(null);
 
@@ -26,13 +26,20 @@ function Home() {
                 if (!response.ok) {
                     throw new error(`Error: ${response.status}`);
                 }
+                const jsonData = await response.json();
+                setData(jsonData);
             } catch( error ){
-                
+                setError(error.message);
             } finally {
-
+              setLoading(false);
             }
-        }
-    })
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) return <p>Loading Data...</p>;
+    if (error) return <p>Error: {error}</p>;
 
     return (
         <>
@@ -52,7 +59,13 @@ function Home() {
                 </div>
                 <div className="foodCategory">
                     <h1>Food Category</h1>
-                    
+                    <ul>
+                      {data.map((category) => (
+                        <li>
+                          <a href=""> {category.category__Image} {category.category__Name} </a>
+                        </li>
+                      ))}
+                    </ul>
                 </div>
             </div>
         </>
