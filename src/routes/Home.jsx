@@ -31,7 +31,7 @@ function Home() {
             } catch( error ){
                 setError(error.message);
             } finally {
-              setLoading(false);
+                setLoading(false);
             }
         };
 
@@ -58,11 +58,12 @@ function Home() {
                     </button>
                 </div>
                 <div className="foodCategory">
-                    <h1>Food Category</h1>
+                    <h3>Food Category</h3>
                     <ul>
                       {data.map((category) => (
                         <li>
-                          <a href=""> {category.category__Image} {category.category__Name} </a>
+                          <img src={category.category__Image} alt="" />
+                          <p> {category.category__Name} </p>
                         </li>
                       ))}
                     </ul>
