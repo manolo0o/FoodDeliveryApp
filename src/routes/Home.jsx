@@ -1,26 +1,31 @@
-// DEPENDENCIES IMPORTATIONS
+// DEPENDENCIES 
 import React, { useEffect, useState} from "react";
 import { json, Link } from "react-router-dom";
 
-// STYLES IMPORTATION
+// STYLES 
 import "../css/Home.css";
 
-//IMAGE IMPORTATION
+// COMPONENTS
+import ProductCard from "../components/productCard.jsx";
+
+// IMAGE 
 import userIcon from "../assets/img/userIcon.svg";
 import barIcon from "../assets/img/barIcon.svg";
 import searchIcon from "../assets/img/search.svg";
+
+
 // SCRIPT
 function Home() {
 
-    const [ data, setData ] = useState([]);
-    const [ loading, setLoading ] = useState(null);
-    const [ error, setError ] = useState(null);
+  const [ data, setData ] = useState([]);
+  const [ loading, setLoading ] = useState(null);
+  const [ error, setError ] = useState(null);
 
     useEffect(() =>{
+        
+        const urlCategories = 'http://localhost:3000/categories';
 
-        const urlCategories = 'http://localhost:3000/categories'
-
-        const fetchData = async () => {
+        const fetchCategories = async () => {
             try{
                 const response = await fetch(urlCategories);
                 if (!response.ok) {
@@ -35,7 +40,7 @@ function Home() {
             }
         };
 
-        fetchData();
+        fetchCategories();
     }, []);
 
     if (loading) return <p>Loading Data...</p>;
@@ -61,13 +66,14 @@ function Home() {
                     <h3>Food Category</h3>
                     <ul>
                       {data.map((category) => (
-                        <li>
+                        <li key={category._id}>
                           <img src={category.category__Image} alt="" />
                           <p> {category.category__Name} </p>
                         </li>
                       ))}
                     </ul>
                 </div>
+                < ProductCard />
             </div>
         </>
     )

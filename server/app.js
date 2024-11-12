@@ -1,19 +1,17 @@
 // app.js
-
 require('dotenv').config({ path: "./config/.env" }); // Carga el archivo .env al inicio
 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+// Inicia Express
+const app = express();
+app.use(express.json()); // Middleware para parsear JSON
 
 // Importa las rutas
 const productRoutes = require('./routes/productRoutes.js');
 const categoryRoutes = require('./routes/categoryRoutes.js');
-
-// Inicia Express
-const app = express();
-app.use(express.json()); // Middleware para parsear JSON
 
 app.use(cors({
     origin: 'http://localhost:5173'
@@ -24,8 +22,6 @@ const config = {
     host: process.env.EXPRESS_HOST,
 };
 
-// Configuración de conexión a la base de datos
-const ConnectToDatabase = require('./config/database.js');
 
 // Función asíncrona para conectar y luego iniciar el servidor
 async function startServer() {

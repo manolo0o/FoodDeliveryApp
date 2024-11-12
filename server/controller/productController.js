@@ -1,10 +1,10 @@
-const products = require('../models/productModel.js');
+const Products = require('../models/productModel.js');
 
 // GET ALL
 
 const get__AllProducts = async (req,res) => {
     try {
-        const products = await products.find();
+        const products = await Products.find({});
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({message: error.message});
@@ -16,7 +16,7 @@ const get__AllProducts = async (req,res) => {
 const get__ProductsById = async (req,res) => {
     try {
         const { id } = req.params;
-        const product = await products.findById(id);
+        const product = await Products.findById(id);
         res.status(200).json(product);
     } catch (error){
         res.status(500).json({message: error.message});
