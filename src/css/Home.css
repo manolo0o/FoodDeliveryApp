@@ -111,7 +111,7 @@ html {
   overflow: visible;
   margin-bottom: 8vh;
   border: 1px solid white;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   box-shadow: 1px 2px 8px var(--color-btn-primary);
   width: 90%;
   display: flex; 
@@ -125,18 +125,19 @@ html {
   background-color: var(--color-btn-primary);
   color: black;
   width: 50%;
+  margin-top: 3vh;
   height: 4vh;
-  border-radius: .2rem ;
-  font-size: 1.1rem;
+  border-radius: .4rem ;
+  font-size: 4vw;
   text-align: center;
 }
 .ProductCard .leftContent h1{
-  font-size: 1.5rem;
+  font-size: 5.5vw;
   margin-bottom: 0;
-  margin-top: 2rem;
+  margin-top: 4vh;
 }
 .ProductCard .leftContent p{
-  font-size: .9rem;
+  font-size: 1.9vh;
   font-weight: normal;
   margin-top: .3rem;
 }
@@ -145,11 +146,12 @@ html {
 
 .ProductCard .rightContent{
   width: 40%;
+  display: flex;
+  flex-direction: column;
 }
 .ProductCard .rightContent img{
-  width: 40%; 
-  height: 80%; 
-  object-fit: cover;
+  width: 38vw; 
+  height: 23vh; 
   position: absolute;
   z-index: 2;
   top: -2.5rem;
