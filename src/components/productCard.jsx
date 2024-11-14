@@ -1,8 +1,12 @@
-// DEPENDENCIES IMPORTATIONS
+// DEPENDENCIES 
 import React, { useEffect, useState} from "react";
 
-// STYLES IMPORTATION
+// STYLES 
 import "../css/Home.css";
+
+// IMAGES
+
+import flameIcon from '../assets/img/flame.svg';
 
 //SCRIPT
 
@@ -47,8 +51,13 @@ function ProductCard() {
                 <p> {products.product__Description} </p>
               </div>
               <div className="rightContent">
-                <img src={products.product__image} alt="" />
-                <p> {products.product__calories} </p>
+                <img src={products.product__image} alt="productImage" className="productImage" /> 
+                <div className="kcalContainer">
+                    <img src={flameIcon} alt="flameIcon" className="FlameIcon" /> 
+                  <p> 
+                    {products.product__calories} kcal 
+                  </p>
+                </div>
               </div>
             </div>
           ))}

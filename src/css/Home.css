@@ -49,6 +49,7 @@ html {
   height: 8vh;
   display: flex;
   justify-content: space-between;
+  
 }
 .inputContainer input{
   width: 75%;
@@ -72,8 +73,8 @@ html {
 
 
 .foodCategory{
-  margin-top: 3vh;
-  margin-bottom: 8vh;
+  margin-top: 5vh;
+  margin-bottom: 11vh;
   width: 100%;
   height: 20vh;
 }
@@ -129,7 +130,9 @@ html {
   height: 4vh;
   border-radius: .4rem ;
   font-size: 4vw;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ProductCard .leftContent h1{
   font-size: 5.5vw;
@@ -148,12 +151,27 @@ html {
   width: 40%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
-.ProductCard .rightContent img{
-  width: 38vw; 
-  height: 23vh; 
+.ProductCard .rightContent .productImage{
+  width: 38vw;
+  height: 21vh;
   position: absolute;
   z-index: 2;
-  top: -2.5rem;
-  right: -0.6rem;
+  top: -2rem;
+  right: -.4rem;
+} 
+.ProductCard .rightContent p{
+  font-weight: normal;
+  font-size: 2vh;
+}
+
+.ProductCard .rightContent .FlameIcon {
+  width: 20%;
+  padding-right: 1.5vw;
+}
+
+.kcalContainer{
+  display: flex;
+  padding-bottom: 1vh;
 }
