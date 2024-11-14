@@ -107,6 +107,16 @@ html {
 
 
 
+.ProductCardList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ProductCard__link{
+  display: flex;
+  text-decoration: none;
+}
+
 .ProductCard {
   position: relative;
   overflow: visible;
@@ -118,11 +128,13 @@ html {
   display: flex; 
   height: 25vh;
 }
-.ProductCard .leftContent{
+
+.ProductCard__leftContent {
   margin-left: 5vw;
-  width: 90vw;
+  width: 70vw;
 }
-.ProductCard .leftContent h3{
+
+.ProductCard__leftContent h3 {
   background-color: var(--color-btn-primary);
   color: black;
   width: 50%;
@@ -134,44 +146,46 @@ html {
   justify-content: center;
   align-items: center;
 }
-.ProductCard .leftContent h1{
+
+.ProductCard__leftContent h1 {
   font-size: 5.5vw;
   margin-bottom: 0;
   margin-top: 4vh;
 }
-.ProductCard .leftContent p{
+
+.ProductCard__leftContent p {
   font-size: 1.9vh;
   font-weight: normal;
   margin-top: .3rem;
 }
 
-
-
-.ProductCard .rightContent{
+.ProductCard__rightContent {
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.ProductCard .rightContent .productImage{
+
+.ProductCard__image {
   width: 38vw;
   height: 21vh;
   position: absolute;
   z-index: 2;
   top: -2rem;
   right: -.4rem;
-} 
-.ProductCard .rightContent p{
+}
+
+.ProductCard__rightContent p {
   font-weight: normal;
   font-size: 2vh;
 }
 
-.ProductCard .rightContent .FlameIcon {
+.ProductCard__FlameIcon {
   width: 20%;
   padding-right: 1.5vw;
 }
 
-.kcalContainer{
+.ProductCard__kcalContainer {
   display: flex;
   padding-bottom: 1vh;
 }

@@ -4,12 +4,14 @@ import React, { useEffect, useState} from "react";
 // STYLES 
 import "../css/Home.css";
 
-// IMAGES
+//ROUTES
+import ProductDetails from "../routes/Product";
 
+// IMAGES
 import flameIcon from '../assets/img/flame.svg';
+import { Link } from "react-router-dom";
 
 //SCRIPT
-
 function ProductCard() {
 
   const [ data, setData ] = useState([]);
@@ -42,27 +44,27 @@ function ProductCard() {
     if (error) return <p>Error: {error}</p>;
 
     return (
-      <>
-          {data.map((products) =>(
-            <div key={products._id} className="ProductCard">
-              <div className="leftContent">
-                <h3> {products.product__Food__Time}</h3>
-                <h1> {products.product__ShortDescription} </h1>
-                <p> {products.product__Description} </p>
+      <div className="ProductCardList"> {/* Un contenedor que envuelve todas las tarjetas para un mejor control de estilos */}
+        {data.map((product) => (
+          <div key={product._id} className="ProductCard">
+            <Link to={`/product/${product._id}`} className="ProductCard__link">
+              <div className="ProductCard__leftContent">
+                <h3>{product.product__Food__Time}</h3>
+                <h1>{product.product__ShortDescription}</h1>
+                <p>{product.product__Description}</p>
               </div>
-              <div className="rightContent">
-                <img src={products.product__image} alt="productImage" className="productImage" /> 
-                <div className="kcalContainer">
-                    <img src={flameIcon} alt="flameIcon" className="FlameIcon" /> 
-                  <p> 
-                    {products.product__calories} kcal 
-                  </p>
+              <div className="ProductCard__rightContent">
+                <img src={product.product__image} alt="productImage" className="ProductCard__image" />
+                <div className="ProductCard__kcalContainer">
+                  <img src={flameIcon} alt="flameIcon" className="ProductCard__FlameIcon" />
+                  <p>{product.product__calories} kcal</p>
                 </div>
               </div>
-            </div>
-          ))}
-      </>
-    )
+            </Link>
+          </div>
+        ))}
+      </div>
+    );
 }
 
 export default ProductCard;

@@ -8,6 +8,7 @@ import Start from './routes/Start.jsx';
 import Register from './routes/Register.jsx';
 import Login from './routes/Login.jsx';
 import Home from './routes/Home.jsx'; 
+import Product from './routes/Product.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,10 +28,10 @@ const router = createBrowserRouter([
     path: '/home',
     element: <Home />,
   },
-  // { //HOME ROUTE
-  //   path: '/product/:id',
-  //   element: <Product />,
-  // },
+  { //HOME ROUTE
+    path: '/product/:id',
+    element: <Product />,
+  },
 ]);
 
 
