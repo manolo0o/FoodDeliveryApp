@@ -4,8 +4,6 @@ import React, { useEffect, useState} from "react";
 // STYLES 
 import "../css/Home.css";
 
-//ROUTES
-import ProductDetails from "../routes/Product";
 
 // IMAGES
 import flameIcon from '../assets/img/flame.svg';
