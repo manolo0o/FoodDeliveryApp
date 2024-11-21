@@ -86,7 +86,22 @@
 
 /*  Delivery Card Component */
 
+.deliveryCard__Container{
+  display: flex;
+  border: 1px solid white;
+  border-radius: 1rem;
+  width: 90%;
+  height: 20vh;
+  background-color: var(--color-btn-primary);
+}
 
+.deliveryCard__Container .rContent{
+  height: 100%;
+}
+.deliveryCard__Container .lContent{
+  height: 100%;
+  padding-left: 5%;
+}
 
 /*  Payment Card Component */
 
