@@ -2,12 +2,13 @@
 import React, { useEffect, useState} from "react";
 
 // STYLES 
-import "../css/Home.css";
+import "../css/Components.css";
 
 
 // IMAGES
 import flameIcon from '../assets/img/flame.svg';
 import { Link } from "react-router-dom";
+
 
 //SCRIPT
 function ProductCard() {

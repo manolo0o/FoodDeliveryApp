@@ -5,6 +5,11 @@ import { useParams } from "react-router-dom";
 // STYLES 
 import "../css/Home.css";
 
+// COMPONENT
+
+import DeliveryCard from "../components/deliveryCard";
+import PaymentCard from "../components/paymentCard";
+
 //SCRIPT
 function ProductDetails() {
 
@@ -47,12 +52,23 @@ function ProductDetails() {
       <div className="productDetail__Container">
         {data ? (
 
-          <div className="product__Image">
+          <div className="product__Card">
+            <div className="product__Im">
               <img src={data.product__image} alt="" />
+            </div>
+            <div className="product__Info">
+              <h2> {data.product__ShortDescription} </h2>
+              <p> {data.product__Description} </p>
+              <h3> {data.product__Food__Time} </h3>
+              < DeliveryCard />
+              < PaymentCard />
+            </div>
           </div>
-        ) : ( 
+    
+      ) : ( 
           <p> not found </p>
       )}
+
       </div>
     );
 }
