@@ -88,7 +88,6 @@
 
 .deliveryCard__Container{
   display: flex;
-  border: 1px solid white;
   border-radius: 1rem;
   width: 90%;
   height: 20vh;
@@ -96,10 +95,38 @@
 }
 
 .deliveryCard__Container .rContent{
+  display: flex;
+  justify-content: center;
   height: 100%;
+  width: 30%;
 }
+.deliveryCard__Container .rContent .containerPrice{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  background-color: #ffffff92;
+  border-radius: .5rem;
+  margin-top: 3vh;
+  width: 70%;
+  height: 30%;
+}
+.containerPrice p,
+.lContent h2,
+.lContent p{
+  color: black;
+}
+.lContent p,
+.Price{
+  margin: 0;
+}
+.lContent p{
+  font-weight: normal;
+}
+
 .deliveryCard__Container .lContent{
   height: 100%;
+  width: 70%;
   padding-left: 5%;
 }
 
