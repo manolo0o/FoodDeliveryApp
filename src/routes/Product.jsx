@@ -60,8 +60,10 @@ function ProductDetails() {
               <h2> {data.product__ShortDescription} </h2>
               <p> {data.product__Description} </p>
               <h3> {data.product__Food__Time} </h3>
-                < DeliveryCard />
-                < PaymentCard />
+                <div className="components">
+                  < DeliveryCard />
+                  < PaymentCard />
+                </div>
             </div>
           </div>
     

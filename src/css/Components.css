@@ -89,7 +89,7 @@
 .deliveryCard__Container{
   display: flex;
   border-radius: 1rem;
-  width: 90%;
+  width: 100%;
   height: 20vh;
   background-color: var(--color-btn-primary);
 }
@@ -140,7 +140,7 @@
   margin-top: 6vh;
   border: 1px solid white;
   border-radius: 1rem;
-  width: 90%;
+  width: 100%;
   height: 12vh;
 }
 .payment-Card_Container .content_Container h2{
