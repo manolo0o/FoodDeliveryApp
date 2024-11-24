@@ -113,10 +113,41 @@ html {
   align-items: center;
 }
 .product__Info{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  /* border-top: 1px solid white; */
+  border-top-left-radius: 2rem ;
+  border-top-right-radius: 2rem ;
+  box-shadow: 0 -4px 8px rgba(250, 250, 250, 0.2);
+}
+.product__Info .details{
+  display: flex;
   width: 90%;
 }
-.product__Info .components{
+.detail__Text{
+  width: 75%;
+}
+.foodTime{
+  width: 25%;
+}
+.foodTime h3{
+  background-color: var(--color-btn-primary);
+  color: black;
   width: 100%;
+  height: 5vh;
+  border-radius: .4rem ;
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail__Text p{
+  opacity: 75%;
+}
+.product__Info .components{
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
