@@ -15,9 +15,9 @@
   position: relative;
   overflow: visible;
   margin-bottom: 8vh;
-  border: 1px solid white;
+  border: 1.2px solid var(--color-btn-primary);
   border-radius: 1.5rem;
-  box-shadow: 1px 2px 8px var(--color-btn-primary);
+  box-shadow: 1px 2px 8px var(--color-btn-secondary);
   width: 90%;
   display: flex; 
   height: 25vh;

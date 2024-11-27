@@ -54,6 +54,7 @@ function ProductDetails() {
 
           <div className="product__Card">
             <div className="product__Im">
+              <h2 className="Title"> {data.product__ShortDescription} </h2>
               <img src={data.product__image} alt="" />
             </div>
             <div className="product__Info">

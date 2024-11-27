@@ -112,6 +112,30 @@ html {
   flex-direction: column;
   align-items: center;
 }
+.product__Im {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8vh;
+}
+
+.product__Im img {
+  width: 65%; 
+}
+.product__Im .Title {
+  width: 70%;
+  position: absolute;
+  top: -25%;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: transparent;
+  -webkit-text-stroke: .5px white;
+  text-align: center;
+  text-wrap: balance;
+}
 .product__Info{
   display: flex;
   width: 100%;
